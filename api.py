@@ -1,14 +1,30 @@
-import requests
 
-url = "https://newscatcher.p.rapidapi.com/v1/search_free"
+from newsapi import NewsApiClient
 
-querystring = {"q":"Tech","lang":"en","media":"True"}
+# Init
+newsapi = NewsApiClient(api_key='fd5be06af4a54a958f2456179a66b86e')
 
-headers = {
-    'x-rapidapi-host': "newscatcher.p.rapidapi.com",
-    'x-rapidapi-key': "aa7d5b2040msh540baa70a08acf4p191b9ajsn6675cbccb263"
-    }
+# /v2/top-headlines
+top_headlines = newsapi.get_top_headlines(q='',
+category='business',language='en')
 
-response = requests.request("GET", url, headers=headers, params=querystring)
 
-print(response.text)
+# /v2/top-headlines/sources
+sources = newsapi.get_sources()
+
+# print(top_headlines['articles'])
+article = top_headlines['articles']
+
+information =top_headlines['articles']
+
+subtitle=[]
+for value in information:
+   subtitle.append(value['title'])
+
+print(subtitle)
+
+
+
+
+
+
