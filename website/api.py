@@ -13,26 +13,26 @@ category='business',language='en')
 sources = newsapi.get_sources()
 
 
-article = top_headlines['articles']
-
 information =top_headlines['articles']
-
+totalresult =top_headlines['totalResults']
 title=[]
 for value in information:
    title.append(value['title'])
 
-print(title)
+#print(title)
 
 
 urlimage=[]
 for value in information:
    urlimage.append(value['urlToImage'])
 
-print(urlimage)
+#print(urlimage)
 
 
 url=[]
 for value in information:
   url.append(value['url'])
 
-print(url)
+#print(url)
+
+print(top_headlines)
